@@ -44,6 +44,17 @@
         font-size: 12px !important;
     }
 }
+
+@media (max-width: 1100px) {
+    .diagnosis-stats-part {
+        justify-content: flex-start;
+    }
+    .diagnostic-stat-card {
+        flex: 1 1 160px;
+        min-width: 140px;
+        max-width: 100%;
+    }
+}
 @media (max-width: 1050px) {
     .header-logo .logo-img {
         max-width: 120px !important;
@@ -75,28 +86,54 @@
 }
 @media (max-width: 1200px) {
     .main-container {
-        max-width: 100vw;
+        max-width: 100%;
         padding: 0 12px;
     }
     .header {
         flex-wrap: wrap;
         gap: 12px;
         padding: 8px 16px;
+        width: calc(100% - 24px);
+        margin: 12px;
     }
     .content-wrapper {
         flex-direction: column;
         gap: 16px;
+        padding: 0 12px 12px 12px;
     }
     .patients-section, .userinfo-section {
         width: 100%;
-        max-width: 100vw;
+        max-width: 100%;
         min-width: 0;
         padding: 8px;
+        margin-top: 0;
+        max-height: 45vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
     }
     .content-main {
         width: 100%;
         min-width: 0;
         padding: 8px;
+        margin-top: 0;
+    }
+    .lab-results-section {
+        height: auto;
+        min-height: 0;
+        justify-content: flex-start;
+    }
+    .vital-signs-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .diagnosis-stats-part {
+        justify-content: flex-start;
+    }
+    .diagnostic-stat-card {
+        flex: 1 1 180px;
+        min-width: 140px;
+        max-width: 100%;
+        width: auto !important;
     }
 }
 
@@ -105,13 +142,20 @@
         flex-direction: column;
         height: auto;
         padding: 6px 8px;
+        width: calc(100% - 16px);
+        margin: 8px;
     }
     .header-categories {
         flex-wrap: wrap;
+        justify-content: center;
         gap: 6px;
     }
+    .header-right {
+        width: 100%;
+        justify-content: center;
+    }
     .patients-section, .userinfo-section {
-        max-width: 100vw;
+        max-width: 100%;
         padding: 6px;
     }
     .content-main {
@@ -119,36 +163,68 @@
     }
     .diagnosis-section, .diagnostic-list-section, .lab-results-section {
         padding: 6px;
+    }
+    .diagnosis-content {
+        gap: 16px;
+    }
+    .diagnosis-stats-part {
+        gap: 12px;
+    }
+    .diagnosis-chart-part {
+        min-height: 220px;
+        height: auto;
     }
 }
 
 @media (max-width: 600px) {
     .main-container {
-        padding: 0 4px;
+        padding: 0 6px;
     }
     .header {
-        padding: 2px 4px;
-        gap: 4px;
+        padding: 6px 8px;
+        gap: 6px;
         flex-direction: column;
         height: auto;
+        width: calc(100% - 12px);
+        margin: 6px;
     }
     .header-categories {
-        gap: 2px;
+        gap: 4px;
         flex-wrap: wrap;
+        justify-content: center;
+    }
+    .category-btn {
+        padding: 8px 14px;
     }
     .patients-section, .userinfo-section {
-        padding: 2px;
-        max-width: 100vw;
+        padding: 6px;
+        max-width: 100%;
     }
     .content-main {
-        padding: 2px;
+        padding: 6px;
+    }
+    .content-wrapper {
+        padding: 0 6px 6px 6px;
     }
     .diagnosis-section, .diagnostic-list-section, .lab-results-section {
-        padding: 2px;
+        padding: 8px;
+    }
+    .diagnosis-header {
+        margin-bottom: 24px;
+    }
+    .diagnostic-list-section .section-title {
+        margin-bottom: 24px;
     }
     .section-title {
         font-size: 14px;
         margin-bottom: 8px;
+    }
+    .userinfo-avatar-large {
+        width: 100px;
+        height: 100px;
+    }
+    .userinfo-card {
+        padding: 20px 12px;
     }
 }
 /* Responsive patient avatar images */
@@ -239,6 +315,8 @@
 
 html, body {
     height: 100%;
+    min-width: 0;
+    overflow-x: hidden;
 }
 
 body {
@@ -254,8 +332,8 @@ body {
     min-height: 100vh;
     width: 100%;
     max-width: 1600px;
-    max-height: 1210px;
     margin: 0 auto;
+    min-width: 0;
 }
 
 /* Header Styling */
@@ -278,7 +356,8 @@ body {
 .header-logo {
     display: flex;
     align-items: center;
-    min-width: 50px;
+    min-width: 0;
+    flex-shrink: 0;
 }
 
 .header-img {
@@ -442,13 +521,14 @@ body {
     gap: 32px;
     padding: 0 18px 18px 18px;
     overflow: hidden;
+    min-width: 0;
 }
 
 /* Patients Section (Left Sidebar) */
 .patients-section {
     width: 367px;
     max-width: 367px;
-    /* height: 1054px; */
+    min-width: 0;
     background-color: #FFFFFF;
     border-radius: 16px;
     padding: 0;
@@ -573,6 +653,7 @@ body {
 /* Main Content Area */
 .content-main {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -737,6 +818,7 @@ body {
 .diagnosis-stats-part {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 21px;
     align-items: flex-start;
 }
@@ -850,8 +932,9 @@ body {
 
 .diagnostic-table-wrapper {
     overflow-x: auto;
-     max-height: 400px;
-     overflow-y: auto;
+    max-height: 400px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .diagnostic-table {
@@ -1008,6 +1091,7 @@ body {
 .userinfo-section {
     width: 367px;
     max-width: 367px;
+    min-width: 0;
     border-radius: 16px;
     box-shadow: none;
     display: flex;
@@ -1181,45 +1265,35 @@ body {
 
 /* Responsive Design */
 
-@media (max-width: 1200px) {
-    .header {
-        width: calc(100% - 24px);
-        margin: 12px;
-    }
-
-    .patients-section {
-        width: 240px;
-    }
-
-    .userinfo-section {
-        width: 220px;
-    }
-
-    .vital-signs-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 @media (max-width: 768px) {
     .content-wrapper {
         flex-direction: column;
         gap: 12px;
+        padding: 0 8px 8px 8px;
     }
 
     .patients-section {
         width: 100%;
-        max-height: 180px;
+        max-width: 100%;
+        min-height: 0;
+        max-height: 45vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
     }
 
     .patients-list {
-        flex-direction: row;
-        overflow-x: auto;
-        overflow-y: hidden;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
     }
 
     .patient-item {
         flex-shrink: 0;
-        min-width: 140px;
+        min-width: 0;
     }
     
     .patient-item-icon {
@@ -1228,7 +1302,13 @@ body {
 
     .userinfo-section {
         width: 100%;
-        max-height: 160px;
+        max-width: 100%;
+        min-height: 0;
+    }
+
+    .userinfo-avatar-large {
+        width: 120px;
+        height: 120px;
     }
 
     .vital-signs-grid {
@@ -1236,29 +1316,42 @@ body {
     }
 
     .header {
-        width: calc(100% - 24px);
-        margin: 12px;
+        width: calc(100% - 16px);
+        margin: 8px;
         height: auto;
         flex-wrap: wrap;
         gap: 12px;
+        padding: 8px 12px;
     }
 
     .header-right {
         width: 100%;
+        justify-content: center;
+    }
+
+    .diagnostic-stat-card {
+        flex: 1 1 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .diagnostic-table-wrapper {
+        margin: 0 -4px;
     }
 }
 
 @media (max-width: 480px) {
     .header {
-        width: calc(100% - 16px);
-        margin: 8px;
-        padding: 0 12px;
+        width: calc(100% - 12px);
+        margin: 6px;
+        padding: 8px 10px;
         height: auto;
     }
 
     .header-categories {
         width: 100%;
         margin-left: 0;
+        justify-content: center;
     }
 
     .category-btn {
@@ -1267,13 +1360,15 @@ body {
     }
 
     .patients-section {
-        max-height: 150px;
-        padding: 12px;
+        padding: 8px;
+    }
+
+    .patients-header {
+        padding: 12px 8px;
     }
 
     .userinfo-section {
-        max-height: 140px;
-        padding: 12px;
+        padding: 8px;
     }
 
     .vital-signs-grid {
@@ -1289,11 +1384,22 @@ body {
     .diagnosis-section,
     .diagnostic-list-section,
     .lab-results-section {
-        padding: 12px;
+        padding: 10px;
     }
 
     .section-title {
         font-size: 14px;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
+    }
+
+    .diagnostic-table th,
+    .diagnostic-table td {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+    .show-all-button {
+        width: 100%;
+        max-width: 220px;
     }
 }
