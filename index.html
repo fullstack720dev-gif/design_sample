@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coalition Technologies - Patient Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header Section -->
+        <header class="header">
+            <!-- Logo -->
+            <div class="header-logo">
+                <img src="assets/TestLogo.svg"alt="Logo" class="logo-img">
+            </div>
+
+            <!-- Categories -->
+            <div class="header-categories">
+                <button class="category-btn active">
+                    <span>
+                        <img src="assets/home_FILL0_wght300_GRAD0_opsz24.svg"alt="Logo" class="header-img">Overview
+                    </span>
+                </button>
+                <button class="category-btn">
+                    <span>
+                        <img src="assets/group_FILL0_wght300_GRAD0_opsz24.svg"alt="Logo" class="header-img">Patients
+                    </span>
+                </button>
+                <button class="category-btn">
+                    <span>
+                        <img src="assets/calendar_today_FILL0_wght300_GRAD0_opsz24.svg"alt="Logo" class="header-img">Schedule
+                    </span>
+                </button>
+                <button class="category-btn">
+                    <span>
+                        <img src="assets/chat_bubble_FILL0_wght300_GRAD0_opsz24.svg"alt="Logo" class="header-img">Message
+                    </span>
+                </button>
+                <button class="category-btn">
+                    <span>
+                        <img src="assets/credit_card_FILL0_wght300_GRAD0_opsz24.svg"alt="Logo" class="header-img">Transactions
+                    </span>
+                </button>
+            </div>
+
+            <!-- Right Section: User Avatar, Info & Icons -->
+            <div class="header-right">
+                <div class="user-section">
+                    <div class="user-avatar-container">
+                        <img src="assets/img1.png" alt="User Avatar" class="user-avatar-img">
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">Jessica Taylor</div>
+                        <div class="user-position">Admin</div>
+                    </div>
+                </div>
+                <button class="header-icon-btn settings-btn">
+                    <img src="assets/settings_FILL0_wght300_GRAD0_opsz24.svg" alt="Settings" class="header-icon-img">
+                </button>
+                <button class="header-icon-btn menu-btn">
+                    <img src="assets/more_vert_FILL0_wght300_GRAD0_opsz24.svg" alt="Menu" class="header-icon-img">
+                </button>
+            </div>
+        </header>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <!-- Patients Section (Left) -->
+            <aside class="patients-section">
+                <div class="patients-header">
+                    <div class="section-title">Patients</div>
+                    <button class="search-icon-btn">
+                        <img src="assets/search_FILL0_wght300_GRAD0_opsz24.svg"alt="Logo" class="logo-img">
+                    </button>
+                </div>
+                <div id="patients-list" class="patients-list">
+                    <!-- Sample patient items -->
+                    <div class="patient-item active">
+                        <div class="patient-avatar">
+                            <img src="assets/img1.png" alt="User Avatar" class="user-avatar-img">
+                        </div>
+                        <div class="patient-item-info">
+                            <div class="patient-name">Jessica Taylor</div>
+                            <div class="patient-gender-age">Female, 28</div>
+                        </div>
+                        <div class="patient-icon">
+                            <img src="assets/more_horiz_FILL0_wght300_GRAD0_opsz24.svg"alt="Logo" class="logo-img">
+                        </div>
+                    </div>
+                    <div class="patient-item">
+                        <div class="patient-avatar">
+                            <img src="assets/img2.png" alt="User Avatar" class="user-avatar-img">
+                        </div>
+                        <div class="patient-item-info">
+                            <div class="patient-name">Emily Martinez</div>
+                            <div class="patient-gender-age">Female, 42</div>
+                        </div>
+                        <div class="patient-icon">
+                            <img src="assets/more_horiz_FILL0_wght300_GRAD0_opsz24.svg"alt="Logo" class="logo-img">
+                        </div>
+                    </div>
+                    <div class="patient-item">
+                        <div class="patient-avatar">
+                            <img src="assets/img3.png" alt="User Avatar" class="user-avatar-img">
+                        </div>
+                        <div class="patient-item-info">
+                            <div class="patient-name">Ryan Johnson</div>
+                            <div class="patient-gender-age">Male, 35</div>
+                        </div>
+                        <div class="patient-icon">
+                            <img src="assets/more_horiz_FILL0_wght300_GRAD0_opsz24.svg"alt="Logo" class="logo-img">
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="content-main">
+                <!-- Diagnosis History Section -->
+                <section class="diagnosis-section">
+                    <div class="diagnosis-header">
+                        <h3 class="section-title">Diagnosis History</h3>
+                    </div>
+                    
+                    <div class="diagnosis-content">
+                        <!-- Chart Part -->
+                        <div class="diagnosis-chart-part">
+                            <div class="chart-container">
+                                <canvas id="blood-pressure-chart" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Vital Stats Part -->
+                        <div class="diagnosis-stats-part">
+                            <div class="diagnostic-stat-card respiratory-card">
+                                <div class="stat-icon-circle">
+                                    <img src="assets/respiratory rate.svg"alt="Logo" class="logo-img">
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-label">Respiratory Rate</div>
+                                    <div class="stat-value">20 bpm</div>
+                                    <div class="stat-status">Normal</div>
+                                </div>
+                            </div>
+
+                            <div class="diagnostic-stat-card temperature-card">
+                                <div class="stat-icon-circle">
+                                    <img src="assets/temperature.svg"alt="Logo" class="logo-img">
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-label">Temperature</div>
+                                    <div class="stat-value">98.6°F</div>
+                                    <div class="stat-status">Normal</div>
+                                </div>
+                            </div>
+
+                            <div class="diagnostic-stat-card heart-card">
+                                <div class="stat-icon-circle">
+                                    <img src="assets/HeartBPM.svg"alt="Logo" class="logo-img">
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-label">Heart Rate</div>
+                                    <div class="stat-value">78 bpm</div>
+                                    <div class="stat-status">Lower than Average</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Diagnostic List Section -->
+                <section class="diagnostic-list-section">
+                    <div class="section-title">Diagnostic List</div>
+                    <div class="diagnostic-table-wrapper">
+                        <table class="diagnostic-table">
+                            <thead>
+                                <tr>
+                                    <th>Problem/Diagnosis</th>
+                                    <th>Description</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="diagnostic-list">
+                                <tr>
+                                    <td>Hypertension</td>
+                                    <td>High blood pressure</td>
+                                    <td><span class="status-badge">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Type 2 Diabetes</td>
+                                    <td>Elevated blood glucose</td>
+                                    <td><span class="status-badge">Under Control</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Hyperlipidemia</td>
+                                    <td>High cholesterol levels</td>
+                                    <td><span class="status-badge">Active</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Right Sidebar: User Info & Lab Results -->
+            <aside class="userinfo-section">
+                <!-- User Info Card (No Title) -->
+                <div class="userinfo-card">
+                    <div id="userinfo-content" class="userinfo-content">
+                        <div class="userinfo-item userinfo-avatar">
+                            <div class="userinfo-avatar-large">
+                                <img src="assets/img2.png"alt="Logo" class="userinfo-avatar-img">
+                            </div>
+                            <div class="userinfo-value">Jessica Taylor</div>
+                        </div>
+                        <div class="userinfo-item">
+                            <div class="userinfo-icon">
+                                <img src="assets/BirthIcon.svg"alt="Logo" class="logo-img">
+                            </div>
+                            <div class="userinfo-details">
+                                <div class="userinfo-label">Date of Birth</div>
+                                <div class="userinfo-value">January 15, 1996</div>
+                            </div>
+                        </div>
+                        <div class="userinfo-item">
+                            <div class="userinfo-icon">
+                                <img src="assets/FemaleIcon.svg"alt="Logo" class="logo-img">
+                            </div>
+                            <div class="userinfo-details">
+                                <div class="userinfo-label">Gender</div>
+                                <div class="userinfo-value">Female</div>
+                            </div>
+                        </div>
+                        <div class="userinfo-item">
+                            <div class="userinfo-icon">
+                                <img src="assets/PhoneIcon.svg"alt="Logo" class="logo-img">
+                            </div>
+                            <div class="userinfo-details">
+                                <div class="userinfo-label">Contact Info</div>
+                                <div class="userinfo-value">(555) 123-4567</div>
+                            </div>
+                        </div>
+                        <div class="userinfo-item">
+                            <div class="userinfo-icon">
+                                <img src="assets/PhoneIcon.svg"alt="Logo" class="logo-img">
+                            </div>
+                            <div class="userinfo-details">
+                                <div class="userinfo-label">Emergency Contact</div>
+                                <div class="userinfo-value">Mark Taylor (555) 987-6543</div>
+                            </div>
+                        </div>
+                        <div class="userinfo-item">
+                            <div class="userinfo-icon">
+                                <img src="assets/InsuranceIcon.svg"alt="Logo" class="logo-img">
+                            </div>
+                            <div class="userinfo-details">
+                                <div class="userinfo-label">Insurance Provider</div>
+                                <div class="userinfo-value">Aetna Health of California</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="userinfo-action">
+                        <button class="show-all-button">Show All Information</button>
+                    </div>
+                </div>
+
+                <!-- Lab Results Section -->
+                <section class="lab-results-section">
+                    <div class="section-title">Lab Results</div>
+                    <div class="lab-results">
+                        <div class="lab-result-item">
+                            <span class="lab-app-name">Blood Work</span>
+                            <a href="#" class="lab-download-icon">
+                                <img src="assets/download_FILL0_wght300_GRAD0_opsz24.svg"alt="Logo" class="logo-img">
+                            </a>
+                        </div>
+                        <div class="lab-result-item">
+                            <span class="lab-app-name">CT Scan</span>
+                            <a href="#" class="lab-download-icon">
+                                <img src="assets/download_FILL0_wght300_GRAD0_opsz24.svg"alt="Logo" class="logo-img">
+                            </a>
+                        </div>
+                        <div class="lab-result-item">
+                            <span class="lab-app-name">X-Ray Report</span>
+                            <a href="#" class="lab-download-icon">
+                                <img src="assets/download_FILL0_wght300_GRAD0_opsz24.svg"alt="Logo" class="logo-img">
+                            </a>
+                        </div>
+                        <div class="lab-result-item">
+                            <span class="lab-app-name">ECG Results</span>
+                            <a href="#" class="lab-download-icon">
+                                <img src="assets/download_FILL0_wght300_GRAD0_opsz24.svg"alt="Logo" class="logo-img">
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Main Script -->
+        <script src="script.js"></script>
+        <script>
+        // Always show the chart with static data on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            var canvas = document.getElementById('blood-pressure-chart');
+            if (canvas && window.Chart) {
+                var ctx = canvas.getContext('2d');
+                if (window.bpChart instanceof Chart) window.bpChart.destroy();
+                window.bpChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Oct 2025', 'Nov 2025', 'Dec 2025', 'Jan 2026', 'Feb 2026'],
+                        datasets: [
+                            {
+                                label: 'Systolic',
+                                data: [120, 122, 125, 130, 128],
+                                borderColor: '#ef4444',
+                                backgroundColor: 'rgba(239, 68, 68, 0.05)',
+                                borderWidth: 2,
+                                fill: true,
+                                tension: 0.4,
+                                pointRadius: 5,
+                                pointBackgroundColor: '#ef4444',
+                                pointBorderColor: '#fff',
+                                pointBorderWidth: 2,
+                                yAxisID: 'y'
+                            },
+                            {
+                                label: 'Diastolic',
+                                data: [80, 82, 85, 88, 86],
+                                borderColor: '#3b82f6',
+                                backgroundColor: 'rgba(59, 130, 246, 0.05)',
+                                borderWidth: 2,
+                                fill: true,
+                                tension: 0.4,
+                                pointRadius: 5,
+                                pointBackgroundColor: '#3b82f6',
+                                pointBorderColor: '#fff',
+                                pointBorderWidth: 2,
+                                yAxisID: 'y'
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: {
+                            mode: 'index',
+                            intersect: false
+                        },
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    usePointStyle: true,
+                                    padding: 15,
+                                    font: {
+                                        size: 12,
+                                        weight: '600'
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                type: 'linear',
+                                display: true,
+                                position: 'left',
+                                min: 0,
+                                max: 200,
+                                ticks: {
+                                    callback: function(value) { return value; }
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Blood Pressure (mmHg)',
+                                    font: { size: 12, weight: '600' }
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Date',
+                                    font: { size: 12, weight: '600' }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+        </script>
+</body>
+</html>
